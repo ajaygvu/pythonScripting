@@ -38,7 +38,10 @@ if __name__ == '__main__':
 
     logging.debug('Waiting for worker threads')
     main_thread = threading.currentThread()
+    #print("main", main_thread)
+    logging.debug(threading.enumerate())
     for t in threading.enumerate():
+        logging.debug(t)
         if t is not main_thread:
             t.join()
     logging.debug('Counter: %d', counter.value)
